@@ -72,7 +72,44 @@ namespace CASO_DE_ESTUDIO_1
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
             }
+            //==============================================
+            //4.- OBTENER LA MODALIDAD SELECCIONADA
+            //==============================================
+
+            string modalidad = "";
+            if (RBPRESENCIAL.Checked)
+            {
+                modalidad = "Presencial";
+            }
+            else if (RBHIBRIDA.Checked)
+            {
+                modalidad = "Híbrida";
+            }
+            else if (RBENLINEA.Checked)
+            {
+                modalidad = "En línea";
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Seleccione una modalidad",
+                    "Validacion",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+            //==============================================
+            //5.-          CREAR EL RESUMEN
+            //==============================================
+            string resumen =
+                "RESUMEN DE PREFERENCIAS\r\n" +
+                "------------------------------\r\n" +
+                "Nombre: " + txtnombre.Text + "\r\n" +
+                "ACTIVIDADES: "+ string.Join (", ", actividades) + "\r\n" +
+                "Modalidad: " + modalidad;
+            txtresumen.Text = resumen;
+
         }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -81,7 +118,22 @@ namespace CASO_DE_ESTUDIO_1
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
-
+            //LIMPIAR EL NOMBRE
+            txtnombre.Clear(); //txtNombre="";
+            //DESMARCAMOS EL CHECKBOX
+            chkdeportes.Checked = false;
+            chkmusica.Checked = false;
+            chkarte.Checked = false;
+            chkprogramacion.Checked = false;
+            chklectura.Checked = false;
+            //desmarcar radiobutton
+            RBENLINEA.Checked = false;
+            RBHIBRIDA.Checked = false;
+            RBPRESENCIAL.Checked = false;
+            //LIMPIAR RESUMEN
+            txtresumen.Clear();
+            //REGRESAMOS EL CURSOR AL NOMBRE
+            txtnombre.Focus();
         }
 
         private void txtresumen_TextChanged(object sender, EventArgs e)
@@ -95,6 +147,21 @@ namespace CASO_DE_ESTUDIO_1
         }
 
         private void chkarte_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

@@ -42,7 +42,7 @@
             RBENLINEA = new RadioButton();
             btnmostarresumen = new Button();
             btnlimpiar = new Button();
-            label2 = new Label();
+            labelresumen = new Label();
             txtresumen = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -148,6 +148,7 @@
             groupBox2.TabIndex = 3;
             groupBox2.TabStop = false;
             groupBox2.Text = "Modalidad preferida";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // RBPRESENCIAL
             // 
@@ -202,14 +203,15 @@
             btnlimpiar.UseVisualStyleBackColor = true;
             btnlimpiar.Click += btnlimpiar_Click;
             // 
-            // label2
+            // labelresumen
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(70, 634);
-            label2.Name = "label2";
-            label2.Size = new Size(60, 15);
-            label2.TabIndex = 9;
-            label2.Text = "RESUMEN";
+            labelresumen.AutoSize = true;
+            labelresumen.Location = new Point(70, 634);
+            labelresumen.Name = "labelresumen";
+            labelresumen.Size = new Size(60, 15);
+            labelresumen.TabIndex = 9;
+            labelresumen.Text = "RESUMEN";
+            labelresumen.Click += label2_Click;
             // 
             // txtresumen
             // 
@@ -224,9 +226,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(822, 941);
+            ClientSize = new Size(784, 941);
             Controls.Add(txtresumen);
-            Controls.Add(label2);
+            Controls.Add(labelresumen);
             Controls.Add(btnmostarresumen);
             Controls.Add(btnlimpiar);
             Controls.Add(groupBox2);
@@ -235,6 +237,7 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Preferencia de Actividades";
+            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -259,7 +262,7 @@
         private RadioButton RBENLINEA;
         private Button btnmostarresumen;
         private Button btnlimpiar;
-        private Label label2;
+        private Label labelresumen;
         private TextBox txtresumen;
     }
 }
